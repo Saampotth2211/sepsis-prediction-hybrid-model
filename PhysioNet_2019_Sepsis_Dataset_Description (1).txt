@@ -1,0 +1,55 @@
+DATASET DESCRIPTION
+PhysioNet/Computing in Cardiology Challenge 2019 Sepsis Dataset
+
+1. Introduction
+The PhysioNet 2019 Sepsis Dataset is a clinical time-series dataset designed for research into the early prediction of sepsis in Intensive Care Unit (ICU) patients. It contains hourly patient measurements, demographic information, and labels indicating sepsis status over time. It can be used for machine learning, deep learning, and probabilistic modeling.
+
+2. Dataset Overview
+- Dataset name: PhysioNet/Computing in Cardiology Challenge 2019
+- Main objective: Early prediction of sepsis
+- Number of patients: Approximately 40,336 in the original training dataset
+- Clinical input variables: 40
+- Data type: Multivariate clinical time-series data
+- Measurement interval: Hourly
+- File format: Pipe-separated values (.psv)
+- Approximate training download size: 42 MB (may vary by package or download method)
+- Official source: https://physionet.org/content/challenge-2019/1.0.0/
+
+3. Types of Information
+The dataset includes:
+- Vital signs, such as heart rate, oxygen saturation, temperature, systolic blood pressure, mean arterial pressure, diastolic blood pressure, respiratory rate, and end-tidal carbon dioxide.
+- Laboratory measurements, such as lactate, glucose, creatinine, bilirubin, white blood cell count, platelets, hemoglobin, and other blood-test results.
+- Patient and ICU information, such as age, gender, ICU-related indicators, hospital admission time information, and ICU length of stay.
+
+4. Important Variables
+- HR: Heart rate.
+- O2Sat: Oxygen saturation.
+- Temp: Body temperature.
+- SBP: Systolic blood pressure.
+- MAP: Mean arterial pressure.
+- DBP: Diastolic blood pressure.
+- Resp: Respiratory rate.
+- ICULOS: ICU length of stay, represented in hours.
+- SepsisLabel: The sepsis outcome label for each hourly record.
+
+5. Data Format
+Each patient is represented by a separate .psv file. Each row corresponds to an hourly record, and columns contain clinical measurements and other variables. Missing measurements are represented as NaN. The number of hourly records can differ between patients.
+
+6. SepsisLabel
+SepsisLabel is the target variable used for supervised prediction. A value of 0 indicates a negative sepsis label for that hour, while a value of 1 indicates a positive sepsis label according to the challenge's labeling rules. In this challenge, the positive label is aligned to a period before the identified sepsis onset, so it should not be interpreted as a simple confirmation that sepsis began at that exact hour.
+
+7. Suitability for the Project
+This dataset is suitable for studying sepsis risk over time because it contains sequential observations and an hourly outcome label. An LSTM can learn temporal patterns, while an HMM or Dynamic Bayesian Network can model hidden states and changes over time. MRFs, particle filters, and decision networks can be added as project components through separate modeling and implementation; they are not supplied as part of the dataset.
+
+8. Limitations and Preprocessing
+- Missing values must be handled using an appropriate strategy.
+- Sepsis-positive cases are less common than negative cases, so class imbalance should be considered.
+- Patients have different sequence lengths; sequences may need padding, truncation, or windowing.
+- Data should be split by patient, not by individual hourly rows, to reduce data leakage.
+- Model predictions are research estimates and are not a substitute for clinical judgment.
+
+9. Official Download
+PhysioNet dataset page:
+https://physionet.org/content/challenge-2019/1.0.0/
+
+Note: The dataset's exact contents and size can depend on the specific files downloaded. Check the official PhysioNet page for the current file list and access instructions.

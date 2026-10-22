@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Large dataset files & raw data (>10MB / binary arrays)
+*.npz
+*.npy
+*.memmap
+*.psv
+*.csv
+
+# Exceptions: Retain small DBN matrices, results, and summary CSVs for reproducibility
+!Main_Methodology/04_Dynamic_Bayesian_Network/*.csv
+!Main_Methodology/06_Final_Results/*.csv
+!Other_Models/Results/*.csv
+
+# Heavy Deep Learning Model Weights & Checkpoints (>1MB)
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.h5
+*.pkl
+
+# Exceptions: Allow lightweight state learner buffer
+!Main_Methodology/03_Bayesian_State_Learner/state_learner_sliding.pt
+
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
